@@ -1,9 +1,6 @@
 "use client";
 
-import useSWR from "swr";
-
-import { fetcher } from "@/lib/fetcher";
-import { useRequest } from "@/hooks/use-request";
+import { usePost } from "@/hooks/use-post";
 
 const Page2 = () => {
   const {
@@ -11,9 +8,7 @@ const Page2 = () => {
     error,
     isLoading,
     isValidating,
-  } = useRequest("/api/data2");
-
-  console.log(error);
+  } = usePost("2");
 
   return (
     <div className="flex flex-col gap-3">
@@ -22,8 +17,9 @@ const Page2 = () => {
         {isLoading && ("Loading...")}
         {data && (
           <ul className="space-y-2">
-            <li><b>Message: </b>{data.message}</li>
-            <li><b>Timestamp: </b>{data.timestamp}</li>
+            <li><b>ID: </b>{data.id}</li>
+            <li><b>Title: </b>{data.title}</li>
+            <li><b>Body: </b>{data.body}</li>
           </ul>
         )}
       </div>
