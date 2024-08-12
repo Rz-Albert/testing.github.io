@@ -11,7 +11,7 @@ const Page3 = () => {
   } = usePost("3");
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-3 max-w-lg">
       <div className="bg-white rounded-md p-3 space-y-3 text-black">
         <p> The data!</p>
         {isLoading && ("Loading...")}

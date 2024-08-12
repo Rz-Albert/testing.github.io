@@ -11,7 +11,10 @@ type Response = {
 }
 
 export const usePost = (postId: string) => {
-  const response = useSWR<Response>(`https://jsonplaceholder.typicode.com/posts/${postId}`, fetcher);
+  const response = useSWR<Response>(`https://jsonplaceholder.typicode.com/posts/${postId}`, fetcher, {
+    revalidateOnFocus: false,
+    shouldRetryOnError: false,
+  });
 
   useEffect(() => {
     return () => {
